@@ -1,0 +1,81 @@
+{% extends "home3.html" %}
+
+
+{% block content %}
+<div class="container">
+
+   
+    <!--<form action="/show_seats" method="get"> -->
+   
+      <div class="card " style="width: 50rem;">
+        <h5 class="card-title m-2">Personal Details</h5>
+        <div class="card mb-3">
+          <div class="row no-gutters">
+            <div class="col-md-8">
+              <div class="card-body">
+                  
+                  <p class="card-text">First Name : {{personal_details['First Name']}}</p>
+                  <p class="card-text">Last Name : {{personal_details['Last Name']}}</p>
+                   <p class="card-text">Father Name : {{personal_details["Father's Name"]}}</p>
+                    <p class="card-text">DOB : {{personal_details['DOB']}}</p>
+                    <p class="card-text">Gender : {{personal_details['Gender']}}</p>
+                    <p class="card-text">Phone : {{personal_details['Phone']}}</p>
+                    <p class="card-text">Address : {{personal_details['Address']}}</p>
+                    <p class="card-text">City : {{personal_details['City']}}</p>
+                    <p class="card-text">State : {{personal_details['State']}}</p>
+                    <p class="card-text">Email : {{personal_details['Email']}}</p>
+              </div>
+            </div>
+          </div>
+         <!--- <div class="float-right">
+            <button type="button" type="submit" class="btn btn-primary btn-sm">View</button>
+          </div> -->
+        </div>
+    </div>
+</div>
+<div class="container">
+    
+    <div class="card " style="width: 50rem;">
+        <h5 class="card-title m-2">Academic Details</h5>
+        <div class="card mb-3">
+          <div class="row no-gutters">
+            <div class="col-md-8">
+              <div class="card-body">
+                  <strong><p class="card-text">10th details</p></strong>
+                  <p class="card-text">Aggregate : {{academic_details['10th Details']['Aggregate']}}</p>
+                  <p class="card-text">Board : {{academic_details['10th Details']['Board']}}</p>
+                   <p class="card-text">Year Of Passing : {{academic_details['10th Details']['YOP']}}</p>
+                    
+              </div>
+                
+                <div class="card-body">
+                  
+                    <strong><p class="card-text">12th details</p></strong>
+                  <p class="card-text">Aggregate : {{academic_details['12th Details']['Aggregate']}}</p>
+                  <p class="card-text">Board : {{academic_details['12th Details']['Board']}}</p>
+                   <p class="card-text">Year Of Passing : {{academic_details['12th Details']['YOP']}}</p>
+              </div>
+                
+                <div class="card-body">
+                  
+                    <strong><p class="card-text">UG details</p></strong>
+                    <p class="card-text">USN : {{academic_details['UG Details']['USN']}}</p>
+                    <p class="card-text">Branch : {{academic_details['UG Details']['Branch']}}</p>
+                    <p class="card-text">Sem : {{academic_details['UG Details']['Sem']}}</p>
+                    <p class="card-text">CGPA : {{academic_details['UG Details']['CGPA']}}</p>
+                   
+                 
+              </div>
+            </div>
+          </div>
+         <!--- <div class="float-right">
+            <button type="button" type="submit" class="btn btn-primary btn-sm">View</button>
+          </div> -->
+        </div>
+    </div>
+    
+   <!-- </form>-->
+  
+</div>
+
+{% endblock %}
