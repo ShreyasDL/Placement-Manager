@@ -2,6 +2,7 @@ import pyrebase
 import os
 
 from flask import Flask,render_template, request, redirect, session, url_for, flash
+from datetime import date
 #from firebase_admin import db
 #from firebase import firebase
 
@@ -26,8 +27,10 @@ auth = firebase.auth()
 db = firebase.database()
 personal_details=dict()
 academic_details=dict()
-company_details=dict()
 comp_list=dict()
+
+t_date = date.today().strftime("%Y-%m-%d")
+today_date=t_date.split('-')
 #import firebase_admin
 #from firebase_admin import credentials
 
@@ -48,6 +51,8 @@ def login():
 		if (request.method == 'POST'):
 			email = request.form['name']
 			password = request.form['password']
+			global company_details
+			company_details=dict()
 			data3=db.child("Companies").get()
                         for value3 in data3.each() :
                                 company_details[value3.key()]=value3.val()
@@ -69,9 +74,7 @@ def login():
                                         data2=db.child("Student Details").child(usn).child("Academic Details").get()
                                         for value2 in data2.each() :
                                                 academic_details[value2.key()]=value2.val()
-                                       
-                                        
-                        return render_template('profile.html',personal_details=personal_details,academic_details=academic_details)
+                        return render_template('home3.html')
 
 	except:
 		#flash('Something went wrong!!')
@@ -136,11 +139,10 @@ def register():
                                 academic_details[value2.key()]=value2.val()
                         data3=db.child("Companies").get()
                         for value3 in data3.each() :
-                                k=value3.key()
+                                global company_details
+                                company_details=dict()
                                 company_details[value3.key()]=value3.val()
-                        
-                        return render_template('profile.html',personal_details=personal_details,academic_details=academic_details)
-        
+                        return render_template('home3.html')
 	return render_template('register.html')
 
 @app.route("/forgot_password")
@@ -164,7 +166,7 @@ def logout():
 
 @app.route("/home")
 def h():
-        return render_template('home3.html')
+        return render_template("home3.html")        
 
 
 @app.route("/profile")
@@ -174,14 +176,26 @@ def profile():
 
 @app.route("/news")
 def news():
-        return render_template('news.html',company_details=company_details,academic_details=academic_details)
+        global c_list
+        c_list=[]
+        d=db.child("Companies").get()
+        for each_data in d.each():
+            try :
+                if usn in each_data.val()["Students"]:
+                    c_list.append(each_data.key())
+            except :
+                pass
+        #today_date=t_date.split('-')
+        return render_template('news.html',company_details=company_details,academic_details=academic_details,c_list=c_list,today_date=today_date)
 
 
 @app.route("/update",methods=['GET','POST'])
 def update():
         db.child("Companies").child(request.form['comp_name']).child("Students").child(usn).set({"Name":personal_details['First Name']+" "+personal_details['Last Name']})
         flash("Applied for "+request.form['comp_name'])
-        return render_template('news.html',company_details=company_details,academic_details=academic_details)
+        c_list.append(request.form['comp_name'])
+        
+        return render_template('news.html',company_details=company_details,academic_details=academic_details,c_list=c_list,today_date=today_date)
 
 @app.route("/adminlogin")
 def adminlogin():
@@ -189,6 +203,11 @@ def adminlogin():
 
 @app.route("/view_companies")
 def view_companies():
+        global company_details
+        company_details=dict()
+        data3=db.child("Companies").get()
+        for value3 in data3.each() :
+                company_details[value3.key()]=value3.val()
         return render_template('view_comp.html',company_details=company_details)
 
 @app.route("/add_company",methods=['GET','POST'])
@@ -202,8 +221,8 @@ def add_company():
                                                "DRIVE DATE":request.form['drive_date']
                                                 }})
                 flash(request.form['comp_name']+" added")
-                return render_template('add_comp.html')
-        return render_template('add_comp.html')
+                return render_template('add_comp.html',t_date=t_date)
+        return render_template('add_comp.html',t_date=t_date)
 
 
 @app.route("/reg_students",methods=['GET','POST'])
@@ -218,6 +237,20 @@ def reg_students():
         except:
                 flash("No Students registered for "+request.form['comp_name'])
                 return render_template('view_comp.html',company_details=company_details)
+
+@app.route("/dashboard")
+def dashboard():
+        global c_list
+        c_list=[]
+        d=db.child("Companies").get()
+        for each_data in d.each():
+            try :
+                if usn in each_data.val()["Students"]:
+                    c_list.append(each_data.key())
+            except :
+                pass
+        return render_template('dashboard.html',c_list=c_list)
+        
         
 app.run(debug=True)
 app.do_teardown_appcontext()

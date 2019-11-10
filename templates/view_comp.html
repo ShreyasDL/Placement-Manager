@@ -28,7 +28,9 @@
             <button type="submit" class="btn btn-primary btn-sm" href="/reg_students" name="comp_name" value="{{k}}" >Registered Students</button>
         </div>
         <p>JOB ROLE : {{v['Eligibility']['JOB ROLE']}}  </p>
-        <p>DRIVE DATE : {{v['Eligibility']['DRIVE DATE']}}  </p>
+        {% set d =v['Eligibility']['DRIVE DATE'].split('-') %}
+        {% set da=d[2]+'-'+d[1]+'-'+d[0] %}
+        <p>DRIVE DATE : {{da}}  </p>
        
     </div>
     

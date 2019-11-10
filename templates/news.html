@@ -19,34 +19,43 @@
     
     
     <form action="/update" method="post">
-    
-        {% if v['Eligibility']['GPA'] > academic_details['UG Details']['CGPA'] or academic_details['UG Details']['Branch'] not in v['Eligibility']['Branch'].encode('ascii','ignore').split('/') %}
-            <div class="alert alert-danger" role="alert">
-                <strong><p>Company Name : {{k}}</p></strong> 
-                <p>JOB ROLE : {{v['Eligibility']['JOB ROLE']}}  </p>
-                <p>DRIVE DATE : {{v['Eligibility']['DRIVE DATE']}}  </p>
-                <div class="float-right">
-                    <button type="submit" class="btn btn-primary btn-sm" href="/update" name="comp_name"  disabled >Not Eligible</button>
-                </div>
-                <p>MIN GPA : {{v['Eligibility']['GPA']}}  </p>
-                <p>BRANCH : {{v['Eligibility']['Branch']}}  </p>
-                
-        </div>
+        {% if k not in c_list %}
+                {% set d =v['Eligibility']['DRIVE DATE'].split('-') %}
+                {% if today_date[0] > d[0] or today_date[1] > d[1] or today_date[2] >= d[2] %}
+                    <div class="alert alert-dark" role="alert">
+                        <strong><p>Company Name : {{k}} </p></strong>
+                        <p>JOB ROLE : {{v['Eligibility']['JOB ROLE']}}  </p>
+                        <div class="float-right">
+                            <button type="submit" class="btn btn-primary btn-sm" href="/update" name="comp_name" value="{{k}}" disabled  >Expired</button>
+                        </div>
+                        {% set vd =v['Eligibility']['DRIVE DATE'].split('-') %}
+                        {% set vda = d[2]+'-'+d[1]+'-'+d[0] %}
+                        <p>DRIVE DATE : {{vda}}  </p>
+                    </div>
+                {% elif v['Eligibility']['GPA'] > academic_details['UG Details']['CGPA'] or academic_details['UG Details']['Branch'] not in v['Eligibility']['Branch'].encode('ascii','ignore').split('/') %}
+                    <div class="alert alert-danger" role="alert">
+                        <strong><p>Company Name : {{k}}</p></strong> 
+                        <p>JOB ROLE : {{v['Eligibility']['JOB ROLE']}}  </p>
+                        <div class="float-right">
+                            <button type="submit" class="btn btn-primary btn-sm" href="/update" name="comp_name"  disabled >Not Eligible</button>
+                        </div>
+                        <p>MIN GPA : {{v['Eligibility']['GPA']}}  </p>
+                        <p>BRANCH : {{v['Eligibility']['Branch']}}  </p>        
+                    </div>
+                {% elif academic_details['UG Details']['CGPA'] > v['Eligibility']['GPA'] and academic_details['UG Details']['Branch'] in v['Eligibility']['Branch'].encode('ascii','ignore').split('/') %}
+                    <div class="alert alert-primary" role="alert">
+                        <strong><p>Company Name : {{k}} </p></strong>
+                        <p>JOB ROLE : {{v['Eligibility']['JOB ROLE']}}  </p>
+                        <div class="float-right">
+                            <button type="submit" class="btn btn-primary btn-sm" href="/update" name="comp_name" value="{{k}}"  >Apply</button>
+                        </div>
+                        {% set vd =v['Eligibility']['DRIVE DATE'].split('-') %}
+                        {% set vda = d[2]+'-'+d[1]+'-'+d[0] %}
+                        <p>DRIVE DATE : {{vda}}  </p>
+                    </div>
+            {% endif %}
         {% endif %}
-        
-        {% if academic_details['UG Details']['CGPA'] > v['Eligibility']['GPA'] and academic_details['UG Details']['Branch'] in v['Eligibility']['Branch'].encode('ascii','ignore').split('/') %}
-            <div class="alert alert-primary" role="alert">
-                <strong><p>Company Name : {{k}} </p></strong>
-                <p>JOB ROLE : {{v['Eligibility']['JOB ROLE']}}  </p>
-                 <div class="float-right">
-                    <button type="submit" class="btn btn-primary btn-sm" href="/update" name="comp_name" value="{{k}}"  >Apply</button>
-        
-                </div>
-                <p>DRIVE DATE : {{v['Eligibility']['DRIVE DATE']}}  </p>
-               
-            </div>
-        {% endif %}
-    </form>
+   </form>
 </div>
     {% endfor %}
     

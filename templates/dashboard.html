@@ -1,0 +1,10 @@
+{% extends "home3.html" %}
+{% block content %}
+<div class="alert alert-success" role="alert">
+                 <p><strong>Applied Companies</strong></p>
+                 {% for value in c_list %}
+                    
+                    <p>{{value}}</p>
+                 {% endfor %}
+             </div>
+{% endblock %}
