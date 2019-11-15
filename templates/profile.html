@@ -2,80 +2,150 @@
 
 
 {% block content %}
-<div class="container">
-
-   
-    <!--<form action="/show_seats" method="get"> -->
-   
-      <div class="card " style="width: 50rem;">
-        <h5 class="card-title m-2">Personal Details</h5>
-        <div class="card mb-3">
-          <div class="row no-gutters">
-            <div class="col-md-8">
-              <div class="card-body">
-                  
-                  <p class="card-text">First Name : {{personal_details['First Name']}}</p>
-                  <p class="card-text">Last Name : {{personal_details['Last Name']}}</p>
-                   <p class="card-text">Father Name : {{personal_details["Father's Name"]}}</p>
-                    <p class="card-text">DOB : {{personal_details['DOB']}}</p>
-                    <p class="card-text">Gender : {{personal_details['Gender']}}</p>
-                    <p class="card-text">Phone : {{personal_details['Phone']}}</p>
-                    <p class="card-text">Address : {{personal_details['Address']}}</p>
-                    <p class="card-text">City : {{personal_details['City']}}</p>
-                    <p class="card-text">State : {{personal_details['State']}}</p>
-                    <p class="card-text">Email : {{personal_details['Email']}}</p>
-              </div>
+<div class="container">        
+    <div class="alert alert-primary" role="alert">
+            <div class="float-right">
+                <button type="submit" class="btn btn-primary btn-sm" onclick="cls()">Edit</button>
             </div>
-          </div>
-         <!--- <div class="float-right">
-            <button type="button" type="submit" class="btn btn-primary btn-sm">View</button>
-          </div> -->
-        </div>
+            <p><strong>Personal Details</strong></p>
+            <fieldset id="edit" disabled="disable">
+            <form action="/pro_update" method="post"> 
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">First Name</span>
+                </div>
+                <input type="text" class="form-control" placeholder="First Name" name="fname" value="{{personal_details['First Name']}}">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Last Name</span>
+                </div>
+                <input type="text" class="form-control" placeholder="Last Name" name="lname" value="{{personal_details['Last Name']}}">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Father's Name</span>
+                </div>
+                <input type="text" class="form-control" placeholder="Father's Name" name="f_fname" value="{{personal_details["Father's Name"]}}">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">DOB</span>
+                </div>
+                <input type="date" class="form-control" name="dd" value="{{personal_details['DOB']}}">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Gender</span>
+                </div>
+                <input type="text" class="form-control" placeholder="Gender" name="gen" value="{{personal_details['Gender']}}">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Phone</span>
+                </div>
+                <input type="text" class="form-control" placeholder="+91XXX(10 digits)" name="no" value="{{personal_details['Phone']}}">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Address</span>
+                </div>
+                <input type="text" class="form-control" placeholder="Address" name="add" value="{{personal_details['Address']}}">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">City</span>
+                </div>
+                <input type="text" class="form-control" placeholder="City" name="city" value="{{personal_details['City']}}">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">State</span>
+                </div>
+                <input type="text" class="form-control" placeholder="State" name="state" value="{{personal_details['State']}}">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Email</span>
+                </div>
+                <input type="text" class="form-control" placeholder="Email" name="email" value="{{personal_details['Email']}}">
+            </div>
+            <p><strong>Academic Details</strong></p>
+            <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">Board</span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Board" name="board" value="{{academic_details['10th Details']['Board']}}">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">Aggregate</span>
+                </div>
+                <input type="text" class="form-control" placeholder="Aggregate" name="aggregate" value="{{academic_details['10th Details']['Aggregate']}}"">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Year Of Passsing</span>
+                </div>
+                <input type="text" class="form-control" placeholder="Year Of Passing" name="yop" value="{{academic_details['10th Details']['YOP']}}">
+            </div>
+            <p><strong>12th Details</strong></p> 
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Board</inp></span>
+                </div>
+                <input type="text" class="form-control" placeholder="Board" name="board2" value="{{academic_details['12th Details']['Board']}}">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Aggregate</span>
+                </div>
+                <input type="text" class="form-control" placeholder="Aggregate" name="aggregate2" value="{{academic_details['12th Details']['Aggregate']}}"">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Year Of Passsing</span>
+                </div>
+                <input type="text" class="form-control" placeholder="Year Of Passing" name="yop2" value="{{academic_details['12th Details']['YOP']}}">
+            </div>
+            <p><strong>UG Details</strong></p>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">USN</inp></span>
+                </div>
+                <input type="text" class="form-control" placeholder="1RN1XXXXXX" name="usn" value="{{academic_details['UG Details']['USN']}}">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Branch</span>
+                </div>
+                <input type="text" class="form-control" placeholder="Branch" name="branch" value="{{academic_details['UG Details']['Branch']}}"">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Sem</span>
+                </div>
+                <input type="text" class="form-control" placeholder="sem" name="sem" value="{{academic_details['UG Details']['Sem']}}">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">CGPA</span>
+                </div>
+                <input type="text" class="form-control" placeholder="CGPA" name="cgpa" value="{{academic_details['UG Details']['CGPA']}}">
+            </div>
+            <div class="float-right">
+                <button type="submit" class="btn btn-primary btn-sm" href="/pro_update">Save Changes</button>
+            </div>
+    </form>
+    </fieldset>
     </div>
 </div>
-<div class="container">
-    
-    <div class="card " style="width: 50rem;">
-        <h5 class="card-title m-2">Academic Details</h5>
-        <div class="card mb-3">
-          <div class="row no-gutters">
-            <div class="col-md-8">
-              <div class="card-body">
-                  <strong><p class="card-text">10th details</p></strong>
-                  <p class="card-text">Aggregate : {{academic_details['10th Details']['Aggregate']}}</p>
-                  <p class="card-text">Board : {{academic_details['10th Details']['Board']}}</p>
-                   <p class="card-text">Year Of Passing : {{academic_details['10th Details']['YOP']}}</p>
-                    
-              </div>
-                
-                <div class="card-body">
-                  
-                    <strong><p class="card-text">12th details</p></strong>
-                  <p class="card-text">Aggregate : {{academic_details['12th Details']['Aggregate']}}</p>
-                  <p class="card-text">Board : {{academic_details['12th Details']['Board']}}</p>
-                   <p class="card-text">Year Of Passing : {{academic_details['12th Details']['YOP']}}</p>
-              </div>
-                
-                <div class="card-body">
-                  
-                    <strong><p class="card-text">UG details</p></strong>
-                    <p class="card-text">USN : {{academic_details['UG Details']['USN']}}</p>
-                    <p class="card-text">Branch : {{academic_details['UG Details']['Branch']}}</p>
-                    <p class="card-text">Sem : {{academic_details['UG Details']['Sem']}}</p>
-                    <p class="card-text">CGPA : {{academic_details['UG Details']['CGPA']}}</p>
-                   
-                 
-              </div>
-            </div>
-          </div>
-         <!--- <div class="float-right">
-            <button type="button" type="submit" class="btn btn-primary btn-sm">View</button>
-          </div> -->
-        </div>
-    </div>
-    
-   <!-- </form>-->
-  
-</div>
+                                                                                                                
+                                                                                                                                     
+    <script>
+        function cls(){
+            document.getElementById("edit").removeAttribute("disabled");
+        }
+    </script>
 
 {% endblock %}

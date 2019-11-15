@@ -1,10 +1,21 @@
 {% extends "home3.html" %}
 {% block content %}
-<div class="alert alert-success" role="alert">
+<div class="container">
+    <div class="alert alert-success" role="alert">
                  <p><strong>Applied Companies</strong></p>
                  {% for value in c_list %}
                     
                     <p>{{value}}</p>
                  {% endfor %}
              </div>
+</div>
+<div class="container">
+    <div class="alert alert-success" role="alert">
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            Select Resume to upload:
+            <input type="file" name="fileToUpload" id="fileToUpload">
+            <input type="submit" value="Upload Image" name="submit">
+        </form>
+    </div>
+</div>
 {% endblock %}

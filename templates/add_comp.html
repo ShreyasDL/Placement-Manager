@@ -1,5 +1,19 @@
 {% extends "adminlogin.html" %}
 {% block content %}
+<div class="container" style="min-height:100% width:80%">
+	{% with messages = get_flashed_messages() %}
+	  {% if messages %}
+	    {% for message in messages %}
+		  <div class="alert alert-warning alert-dismissible" role="alert">
+		  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+			{{message}}
+		  </div>
+		{% endfor %}
+	  {% endif %}
+	{% endwith %}
+	
+	{% block body %}{% endblock %}
+	</div>
 <div class="container">
             <div class="col-4">
                 <div class="login-dark p-3 my-5 shadow-lg rounded">
@@ -43,20 +57,7 @@
                         </div>
                         
                     </form>
-                    <div class="container" style="min-height:100% width:80%">
-	{% with messages = get_flashed_messages() %}
-	  {% if messages %}
-	    {% for message in messages %}
-		  <div class="alert alert-warning alert-dismissible" role="alert">
-		  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-			{{message}}
-		  </div>
-		{% endfor %}
-	  {% endif %}
-	{% endwith %}
-	
-	{% block body %}{% endblock %}
-	</div>
+                    
                 </div>
             </div>
         </div>

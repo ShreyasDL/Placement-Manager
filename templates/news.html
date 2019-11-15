@@ -28,7 +28,6 @@
                         <div class="float-right">
                             <button type="submit" class="btn btn-primary btn-sm" href="/update" name="comp_name" value="{{k}}" disabled  >Expired</button>
                         </div>
-                        {% set vd =v['Eligibility']['DRIVE DATE'].split('-') %}
                         {% set vda = d[2]+'-'+d[1]+'-'+d[0] %}
                         <p>DRIVE DATE : {{vda}}  </p>
                     </div>
@@ -49,7 +48,6 @@
                         <div class="float-right">
                             <button type="submit" class="btn btn-primary btn-sm" href="/update" name="comp_name" value="{{k}}"  >Apply</button>
                         </div>
-                        {% set vd =v['Eligibility']['DRIVE DATE'].split('-') %}
                         {% set vda = d[2]+'-'+d[1]+'-'+d[0] %}
                         <p>DRIVE DATE : {{vda}}  </p>
                     </div>

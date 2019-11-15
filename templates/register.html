@@ -6,7 +6,7 @@
 <script src="static/script.js"></script>
 <body>
 
-<form id="regForm" action="/register" method="post" onsubmit="checkPassword()" >
+<form id="regForm" action="/register" method="post" onsubmit="checkPassword()" enctype="multipart/form-data" >
   <h1>Register:</h1>
   <!-- One "tab" for each step in the form: -->
   <div class="tab">
@@ -103,7 +103,8 @@
     <div>Confirm Password :
         <p><input type="password" placeholder="Confirm Password" id="confirm_password" name = "confirm_password" minlength="8"></p>
     </div>
-        <!--<button type="submit" class="pure-button pure-button-primary">Confirm</button>-->
+        Select Resume To Upload :
+        <input type="file" name="fileToUpload" id="fileToUpload">
     </div>
   <div style="overflow:auto;">
     <div style="float:right;">

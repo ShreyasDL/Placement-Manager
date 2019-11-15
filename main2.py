@@ -28,7 +28,7 @@ db = firebase.database()
 personal_details=dict()
 academic_details=dict()
 comp_list=dict()
-
+email=""
 t_date = date.today().strftime("%Y-%m-%d")
 today_date=t_date.split('-')
 #import firebase_admin
@@ -130,6 +130,8 @@ def register():
                                                                                                                 "CGPA":request.form['cgpa']
                                                                                                            }
                                                                                                         )
+                        firebase_storage=firebase.storage()
+                        firebase_storage.child("Resume/"+usn+".pdf").put(request.files['fileToUpload'])
                         data=db.child("Student Details").child(usn).child("Personal Details").get()
                         for value in data.each() :
                                 personal_details[value.key()]=value.val()
@@ -161,7 +163,7 @@ def forgot_form():
 
 @app.route("/logout")
 def logout():
-	session.pop("email",None)
+	session.pop(email,None)
 	return render_template('login.html')
 
 @app.route("/home")
@@ -170,12 +172,16 @@ def h():
 
 
 @app.route("/profile")
-def profile():
-        
+def profile():     
         return render_template('profile.html',personal_details=personal_details,academic_details=academic_details)
 
 @app.route("/news")
 def news():
+        global company_details
+	company_details=dict()
+	data3=db.child("Companies").get()
+        for value3 in data3.each() :
+                company_details[value3.key()]=value3.val()
         global c_list
         c_list=[]
         d=db.child("Companies").get()
@@ -250,7 +256,64 @@ def dashboard():
             except :
                 pass
         return render_template('dashboard.html',c_list=c_list)
-        
-        
+
+@app.route("/upload",methods=['GET','POST'])
+def upload():
+        firebase_storage=firebase.storage()
+        firebase_storage.child("Resume/"+usn+".pdf").put(request.files['fileToUpload'])
+        return render_template("dashboard.html")
+@app.route("/pro_update",methods=['GET','POST'])
+def pro_update():
+        if (request.method == 'POST') :
+                global usn
+		usn=request.form['usn']
+		db.child("Student Details").child(usn).child("Personal Details").set({"First Name" : request.form['fname'].upper(),
+                                                                                       "Last Name" : request.form['lname'].upper(),
+                                                                                       "Father's Name" : request.form['f_fname'].upper(),
+                                                                                       "DOB" : request.form['dd'],
+                                                                                       "Gender" : request.form['gen'],
+                                                                                       "Phone" : request.form['no'],
+                                                                                       "Address" : request.form['add'],
+                                                                                       "City" : request.form['city'].upper(),
+                                                                                       "State" : request.form['state'].upper(),
+                                                                                        "Email" : request.form['email']})
+		db.child("Student Details").child(usn).child("Academic Details").child("10th Details").set(
+                                                                                                           {
+                                                                                                            "Board" : request.form['board'].upper(),
+                                                                                                            "Aggregate" : request.form['aggregate'],
+                                                                                                            "YOP" : request.form['yop']
+                                                                                                            }
+                                                                                                           )
+                db.child("Student Details").child(usn).child("Academic Details").child("12th Details").set(
+                                                                                                            {
+                                                                                                                "Board" : request.form['board2'].upper(),
+                                                                                                               "Aggregate" : request.form['aggregate2'],
+                                                                                                               "YOP" : request.form['yop2']
+                                                                                                             }
+                                                                                                           )
+                db.child("Student Details").child(usn).child("Academic Details").child("UG Details").set(
+                                                                                                          {
+                                                                                                                "USN":request.form['usn'],
+                                                                                                                "Branch":request.form['branch'].upper(),
+                                                                                                                "Sem":request.form['sem'],
+                                                                                                                "CGPA":request.form['cgpa']
+                                                                                                           }
+                                                                                                        )
+                data=db.child("Student Details").child(usn).child("Personal Details").get()
+                for value in data.each() :
+                        personal_details[value.key()]=value.val()
+
+                data2=db.child("Student Details").child(usn).child("Academic Details").get()
+                for value2 in data2.each() :
+                        academic_details[value2.key()]=value2.val()
+                data3=db.child("Companies").get()
+                for value3 in data3.each() :
+                        global company_details
+                        company_details=dict()
+                        company_details[value3.key()]=value3.val()
+                        
+                return render_template('profile.html',personal_details=personal_details,academic_details=academic_details)
+        return render_template('profile.html',personal_details=personal_details,academic_details=academic_details)
+                        
 app.run(debug=True)
 app.do_teardown_appcontext()
