@@ -89,13 +89,17 @@ def register():
 		email = request.form['email']
 		password1 = request.form['password']
 		password2 = request.form['confirm_password']
-
+                
 		if password1 == password2 and password1!="" and email!="":
-			user = auth.create_user_with_email_and_password(email, password1)
-			user = auth.refresh(user['refreshToken'])
-			auth.send_email_verification(user['idToken'])
-			user = auth.sign_in_with_email_and_password(email, password1)
-			session['email'] = email
+                        try :
+                                user = auth.create_user_with_email_and_password(email, password1)
+                                user = auth.refresh(user['refreshToken'])
+                                auth.send_email_verification(user['idToken'])
+                                user = auth.sign_in_with_email_and_password(email, password1)
+                                session['email'] = email
+                        except :
+                                flash("Email ID already exists")
+                                return render_template('register.html')
 			global usn
 			usn=request.form['usn']
 			db.child("Student Details").child(usn).child("Personal Details").set({"First Name" : request.form['fname'].upper(),
@@ -130,8 +134,6 @@ def register():
                                                                                                                 "CGPA":request.form['cgpa']
                                                                                                            }
                                                                                                         )
-                        firebase_storage=firebase.storage()
-                        firebase_storage.child("Resume/"+usn+".pdf").put(request.files['fileToUpload'])
                         data=db.child("Student Details").child(usn).child("Personal Details").get()
                         for value in data.each() :
                                 personal_details[value.key()]=value.val()

@@ -4,9 +4,30 @@
 <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 <link href="static/style.css" rel="stylesheet">
 <script src="static/script.js"></script>
-<body>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-<form id="regForm" action="/register" method="post" onsubmit="checkPassword()" enctype="multipart/form-data" >
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        
+<body>
+    <div class="container" style="min-height:100% width:80%">
+	{% with messages = get_flashed_messages() %}
+	  {% if messages %}
+	    {% for message in messages %}
+		  <div class="alert alert-warning alert-dismissible" role="alert">
+		  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+			{{message}}
+		  </div>
+		{% endfor %}
+	  {% endif %}
+	{% endwith %}
+
+
+<form id="regForm" action="/register" method="post" onsubmit="checkPassword()" >
   <h1>Register:</h1>
   <!-- One "tab" for each step in the form: -->
   <div class="tab">
@@ -103,8 +124,6 @@
     <div>Confirm Password :
         <p><input type="password" placeholder="Confirm Password" id="confirm_password" name = "confirm_password" minlength="8"></p>
     </div>
-        Select Resume To Upload :
-        <input type="file" name="fileToUpload" id="fileToUpload">
     </div>
   <div style="overflow:auto;">
     <div style="float:right;">

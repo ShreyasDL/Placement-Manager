@@ -21,7 +21,17 @@
     <form action="/update" method="post">
         {% if k not in c_list %}
                 {% set d =v['Eligibility']['DRIVE DATE'].split('-') %}
-                {% if today_date[0] > d[0] or today_date[1] > d[1] or today_date[2] >= d[2] %}
+                {% if today_date[0] > d[0] or today_date[1] > d[1] %}
+                    <div class="alert alert-dark" role="alert">
+                        <strong><p>Company Name : {{k}} </p></strong>
+                        <p>JOB ROLE : {{v['Eligibility']['JOB ROLE']}}  </p>
+                        <div class="float-right">
+                            <button type="submit" class="btn btn-primary btn-sm" href="/update" name="comp_name" value="{{k}}" disabled  >Expired</button>
+                        </div>
+                        {% set vda = d[2]+'-'+d[1]+'-'+d[0] %}
+                        <p>DRIVE DATE : {{vda}}  </p>
+                    </div>
+                {% elif today_date[0] == d[0] and today_date[1] == d[1] and today_date[2] >= d[2] %}
                     <div class="alert alert-dark" role="alert">
                         <strong><p>Company Name : {{k}} </p></strong>
                         <p>JOB ROLE : {{v['Eligibility']['JOB ROLE']}}  </p>
