@@ -257,7 +257,7 @@ def dashboard():
                     c_list.append(each_data.key())
             except :
                 pass
-        return render_template('dashboard.html',c_list=c_list)
+        return render_template('dashboard.html',c_list=c_list,company_details=company_details)
 
 @app.route("/upload",methods=['GET','POST'])
 def upload():

@@ -2,19 +2,23 @@
 {% block content %}
 <div class="container">
     <div class="alert alert-success" role="alert">
-                 <p><strong>Applied Companies</strong></p>
+                <table cellpadding="10">
+                    <tr><th>Applied Companies </th><th>Drive Date</th></tr>
                  {% for value in c_list %}
-                    
-                    <p>{{value}}</p>
+                    {% set c = value %}
+                    {% set sp_date = company_details[c]['Eligibility']['DRIVE DATE'].split('-') %}
+                    <tr><td>{{value}}</td><td>{{sp_date[2]+'-'+sp_date[1]+'-'+sp_date[0]}}</td></tr>
                  {% endfor %}
+        </table>
              </div>
 </div>
 <div class="container">
     <div class="alert alert-success" role="alert">
         <form action="/upload" method="post" enctype="multipart/form-data">
+            <p><strong>Resume Updation</strong></p>
             Select Resume to upload:
             <input type="file" name="fileToUpload" id="fileToUpload">
-            <input type="submit" value="Upload Image" name="submit">
+            <input type="submit" value="Upload Resume" name="submit">
         </form>
     </div>
 </div>
