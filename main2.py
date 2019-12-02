@@ -316,6 +316,12 @@ def pro_update():
                         
                 return render_template('profile.html',personal_details=personal_details,academic_details=academic_details)
         return render_template('profile.html',personal_details=personal_details,academic_details=academic_details)
+
+'''@app.route('/add_selected_students',methods=['GET','POST'])
+def add_selected_students():
+        if request.method == 'POST' :
+                return render_template('add_selected_students.html')
+        return render_template('add_Selected_students.html',company_details=company_details)'''
                         
 app.run(debug=True)
 app.do_teardown_appcontext()

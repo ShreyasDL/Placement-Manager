@@ -1,0 +1,483 @@
+{
+  "Companies" : {
+    "Accenture" : {
+      "Eligibility" : {
+        "Branch" : "CSE/ISE/ME/CIV/EE/EI/ECE",
+        "DRIVE DATE" : "2019-11-28",
+        "GPA" : "6",
+        "JOB ROLE" : "TESTER"
+      },
+      "Students" : {
+        "1RN16IS073" : {
+          "Name" : "PRAMOD R"
+        },
+        "1RN16IS074" : {
+          "Name" : "PREETHAM A"
+        },
+        "1RN16IS113" : {
+          "Name" : "TEJAS DS"
+        }
+      }
+    },
+    "Amazon" : {
+      "Eligibility" : {
+        "Branch" : "CSE/ISE",
+        "DRIVE DATE" : "2019-11-25",
+        "GPA" : "7",
+        "JOB ROLE" : "SDE"
+      },
+      "Students" : {
+        "1RN16CS095" : {
+          "Name" : "SHASHANK BHAT"
+        },
+        "1RN16IS073" : {
+          "Name" : "PRAMOD R"
+        },
+        "1RN16IS074" : {
+          "Name" : "PREETHAM A"
+        },
+        "1RN16IS089" : {
+          "Name" : "SATHWIK N B"
+        },
+        "1RN16IS098" : {
+          "Name" : "SHREYAS DL"
+        },
+        "1RN16IS115" : {
+          "Name" : "VARUN  J"
+        }
+      }
+    },
+    "Capgemini" : {
+      "Eligibility" : {
+        "Branch" : "CSE/ISE",
+        "DRIVE DATE" : "2019-12-02",
+        "GPA" : "6",
+        "JOB ROLE" : "DATA ANALYST"
+      },
+      "Students" : {
+        "1RN16CS095" : {
+          "Name" : "SHASHANK BHAT"
+        },
+        "1RN16IS066" : {
+          "Name" : "PHANISH R"
+        },
+        "1RN16IS089" : {
+          "Name" : "SATHWIK N B"
+        },
+        "1RN16IS098" : {
+          "Name" : "SHREYAS D L"
+        },
+        "1RN16IS113" : {
+          "Name" : "TEJAS DS"
+        },
+        "1RN16IS115" : {
+          "Name" : "VARUN  J"
+        }
+      }
+    },
+    "Cognizant" : {
+      "Eligibility" : {
+        "Branch" : "ECE/EEE/CSE/ISE",
+        "DRIVE DATE" : "2019-11-22",
+        "GPA" : "7",
+        "JOB ROLE" : "ANALYST"
+      },
+      "Students" : {
+        "1RN16CS095" : {
+          "Name" : "SHASHANK BHAT"
+        },
+        "1RN16IS098" : {
+          "Name" : "SHREYAS DL"
+        },
+        "1RN16IS113" : {
+          "Name" : "TEJAS DS"
+        },
+        "1RN16IS115" : {
+          "Name" : "VARUN  J"
+        }
+      }
+    },
+    "Delta X" : {
+      "Eligibility" : {
+        "Branch" : "CSE/ISE/ECE/EI",
+        "DRIVE DATE" : "2019-12-11",
+        "GPA" : "7",
+        "JOB ROLE" : "Software Engineer"
+      }
+    },
+    "Infosys" : {
+      "Eligibility" : {
+        "Branch" : "CSE/ISE",
+        "DRIVE DATE" : "2019-11-14",
+        "GPA" : "7",
+        "JOB ROLE" : "Testing"
+      },
+      "Students" : {
+        "1RN16CS095" : {
+          "Name" : "SHASHANK BHAT"
+        },
+        "1RN16IS113" : {
+          "Name" : "TEJAS DS"
+        },
+        "1RN16IS115" : {
+          "Name" : "VARUN  J"
+        }
+      }
+    },
+    "LTI" : {
+      "Eligibility" : {
+        "Branch" : "CSE/ISE",
+        "DRIVE DATE" : "2019-11-14",
+        "GPA" : "8",
+        "JOB ROLE" : "DEVELOPER"
+      },
+      "Students" : {
+        "1RN16CS095" : {
+          "Name" : "SHASHANK BHAT"
+        }
+      }
+    },
+    "TCS" : {
+      "Eligibility" : {
+        "Branch" : "CSE/ISE",
+        "DRIVE DATE" : "2019-11-20",
+        "GPA" : "9",
+        "JOB ROLE" : "DEVELOPER"
+      }
+    },
+    "TEXTRON" : {
+      "Eligibility" : {
+        "Branch" : "ME",
+        "DRIVE DATE" : "2019-11-26",
+        "GPA" : "7",
+        "JOB ROLE" : "DESIGNER"
+      }
+    },
+    "TEXUS INSTRUMENTS" : {
+      "Eligibility" : {
+        "Branch" : "ECE",
+        "DRIVE DATE" : "2019-11-09",
+        "GPA" : "7",
+        "JOB ROLE" : "ANALYST"
+      }
+    },
+    "Value Labs" : {
+      "Eligibility" : {
+        "Branch" : "CSE/ISE",
+        "DRIVE DATE" : "2019-11-30",
+        "GPA" : "6",
+        "JOB ROLE" : "Marketing"
+      },
+      "Students" : {
+        "1RN16CS095" : {
+          "Name" : "SHASHANK BHAT"
+        },
+        "1RN16IS066" : {
+          "Name" : "PHANISH R"
+        },
+        "1RN16IS089" : {
+          "Name" : "SATHWIK N B"
+        },
+        "1RN16IS098" : {
+          "Name" : "SHREYAS DL"
+        },
+        "1RN16IS113" : {
+          "Name" : "TEJAS DS"
+        },
+        "1RN16IS115" : {
+          "Name" : "VARUN  J"
+        }
+      }
+    }
+  },
+  "Student Details" : {
+    "1RN16CS010" : {
+      "Academic Details" : {
+        "10th Details" : {
+          "Aggregate" : "8",
+          "Board" : "CBSE",
+          "YOP" : "2016"
+        },
+        "12th Details" : {
+          "Aggregate" : "90",
+          "Board" : "STATE",
+          "YOP" : "2018"
+        },
+        "UG Details" : {
+          "Branch" : "ME",
+          "CGPA" : "8",
+          "Sem" : "2",
+          "USN" : "1RN16CS010"
+        }
+      },
+      "Personal Details" : {
+        "Address" : "GIRINAGAR",
+        "City" : "BANGALORE",
+        "DOB" : "2019-10-28",
+        "Email" : "aaa@gmail.com",
+        "Father's Name" : "PRASAD",
+        "First Name" : "AKASH",
+        "Gender" : "Male",
+        "Last Name" : "C",
+        "Phone" : "9551260321",
+        "State" : "KARNATAKA"
+      }
+    },
+    "1RN16CS095" : {
+      "Academic Details" : {
+        "10th Details" : {
+          "Aggregate" : "95",
+          "Board" : "STATE",
+          "YOP" : "2014"
+        },
+        "12th Details" : {
+          "Aggregate" : "95",
+          "Board" : "STATE",
+          "YOP" : "2016"
+        },
+        "UG Details" : {
+          "Branch" : "CSE",
+          "CGPA" : "8.2",
+          "Sem" : "7",
+          "USN" : "1RN16CS095"
+        }
+      },
+      "Personal Details" : {
+        "Address" : "RNSIT BOYS HOSTEL",
+        "City" : "BANGALORE",
+        "DOB" : "2019-11-16",
+        "Email" : "shashankbhat1800@gmail.com",
+        "Father's Name" : "GANAPATHI BHAT",
+        "First Name" : "SHASHANK",
+        "Gender" : "Male",
+        "Last Name" : "BHAT",
+        "Phone" : "8222661524",
+        "State" : "KARNATAKA"
+      }
+    },
+    "1RN16IS066" : {
+      "Academic Details" : {
+        "10th Details" : {
+          "Aggregate" : "78.33",
+          "Board" : "ICSE",
+          "YOP" : "2014"
+        },
+        "12th Details" : {
+          "Aggregate" : "83.14",
+          "Board" : "STATE",
+          "YOP" : "2016"
+        },
+        "UG Details" : {
+          "Branch" : "ISE",
+          "CGPA" : "7.01",
+          "Sem" : "7",
+          "USN" : "1RN16IS066"
+        }
+      },
+      "Personal Details" : {
+        "Address" : "RNSIT",
+        "City" : "BANGALORE",
+        "DOB" : "1998-01-06",
+        "Email" : "phanishraghunath@gmail.com",
+        "Father's Name" : "RAGHUNATH",
+        "First Name" : "PHANISH",
+        "Gender" : "Male",
+        "Last Name" : "R",
+        "Phone" : "8496969649",
+        "State" : "KARNATAKA"
+      }
+    },
+    "1RN16IS073" : {
+      "Academic Details" : {
+        "10th Details" : {
+          "Aggregate" : "98",
+          "Board" : "STATE",
+          "YOP" : "2014"
+        },
+        "12th Details" : {
+          "Aggregate" : "95",
+          "Board" : "STATE",
+          "YOP" : "2016"
+        },
+        "UG Details" : {
+          "Branch" : "ISE",
+          "CGPA" : "8.9",
+          "Sem" : "7",
+          "USN" : "1RN16IS073"
+        }
+      },
+      "Personal Details" : {
+        "Address" : "Kalappa Block",
+        "City" : "BANGALORE",
+        "DOB" : "1998-12-13",
+        "Email" : "pramod1398@gmail.com",
+        "Father's Name" : "RAMCHANDRA",
+        "First Name" : "PRAMOD",
+        "Gender" : "Male",
+        "Last Name" : "R",
+        "Phone" : "8660031528",
+        "State" : "KARNATAKA"
+      }
+    },
+    "1RN16IS074" : {
+      "Academic Details" : {
+        "10th Details" : {
+          "Aggregate" : "98",
+          "Board" : "STATE",
+          "YOP" : "2014"
+        },
+        "12th Details" : {
+          "Aggregate" : "89",
+          "Board" : "STATE",
+          "YOP" : "2016"
+        },
+        "UG Details" : {
+          "Branch" : "ISE",
+          "CGPA" : "6.75",
+          "Sem" : "7",
+          "USN" : "1RN16IS074"
+        }
+      },
+      "Personal Details" : {
+        "Address" : "RNSIT",
+        "City" : "BLORE",
+        "DOB" : "1998-06-15",
+        "Email" : "preetham.adi@gmail.com",
+        "Father's Name" : "ADI NARAYANA",
+        "First Name" : "PREETHAM",
+        "Gender" : "Male",
+        "Last Name" : "A",
+        "Phone" : "890467336",
+        "State" : "KARNATAKA"
+      }
+    },
+    "1RN16IS089" : {
+      "Academic Details" : {
+        "10th Details" : {
+          "Aggregate" : "95",
+          "Board" : "STATE",
+          "YOP" : "2014"
+        },
+        "12th Details" : {
+          "Aggregate" : "90",
+          "Board" : "STATE",
+          "YOP" : "2016"
+        },
+        "UG Details" : {
+          "Branch" : "ISE",
+          "CGPA" : "7.5",
+          "Sem" : "7",
+          "USN" : "1RN16IS089"
+        }
+      },
+      "Personal Details" : {
+        "Address" : "RNSIT",
+        "City" : "BANGALORE",
+        "DOB" : "1998-04-23",
+        "Email" : "shreyas_5115@yahoo.com",
+        "Father's Name" : "BASAVARAJ",
+        "First Name" : "SATHWIK",
+        "Gender" : "Male",
+        "Last Name" : "N B",
+        "Phone" : "8889991234",
+        "State" : "KARNATAKA"
+      }
+    },
+    "1RN16IS098" : {
+      "Academic Details" : {
+        "10th Details" : {
+          "Aggregate" : "95.54",
+          "Board" : "STATE",
+          "YOP" : "2014"
+        },
+        "12th Details" : {
+          "Aggregate" : "94",
+          "Board" : "STATE",
+          "YOP" : "2016"
+        },
+        "UG Details" : {
+          "Branch" : "ISE",
+          "CGPA" : "8.2",
+          "Sem" : "7",
+          "USN" : "1RN16IS098"
+        }
+      },
+      "Personal Details" : {
+        "Address" : "RNSIT HOSTEL-2",
+        "City" : "BANGALORE",
+        "DOB" : "1998-10-17",
+        "Email" : "shreyasdl.1rn16is098@gmail.com",
+        "Father's Name" : "LAKSHMIKANTH DR",
+        "First Name" : "SHREYAS",
+        "Gender" : "Male",
+        "Last Name" : "D L",
+        "Phone" : "8105769691",
+        "State" : "KARNATAKA"
+      }
+    },
+    "1RN16IS113" : {
+      "Academic Details" : {
+        "10th Details" : {
+          "Aggregate" : "95",
+          "Board" : "STATE",
+          "YOP" : "2014"
+        },
+        "12th Details" : {
+          "Aggregate" : "8",
+          "Board" : "CBSE",
+          "YOP" : "2016"
+        },
+        "UG Details" : {
+          "Branch" : "ISE",
+          "CGPA" : "8",
+          "Sem" : "7",
+          "USN" : "1RN16IS113"
+        }
+      },
+      "Personal Details" : {
+        "Address" : "Srirampura",
+        "City" : "BANGALORE",
+        "DOB" : "1998-09-15",
+        "Email" : "tds123@gmail.com",
+        "Father's Name" : "SRINIVAS",
+        "First Name" : "TEJAS",
+        "Gender" : "Male",
+        "Last Name" : "DS",
+        "Phone" : "9661253361",
+        "State" : "KARNATAKA"
+      }
+    },
+    "1RN16IS115" : {
+      "Academic Details" : {
+        "10th Details" : {
+          "Aggregate" : "90",
+          "Board" : "STATE",
+          "YOP" : "2014"
+        },
+        "12th Details" : {
+          "Aggregate" : "88",
+          "Board" : "STATE",
+          "YOP" : "2016"
+        },
+        "UG Details" : {
+          "Branch" : "ISE",
+          "CGPA" : "7.5",
+          "Sem" : "7",
+          "USN" : "1RN16IS115"
+        }
+      },
+      "Personal Details" : {
+        "Address" : "CHICKPETE",
+        "City" : "BANGALORE",
+        "DOB" : "1998-12-01",
+        "Email" : "varun@gmail.com",
+        "Father's Name" : "JAI",
+        "First Name" : "VARUN ",
+        "Gender" : "Male",
+        "Last Name" : "J",
+        "Phone" : "98882215231",
+        "State" : "KARNATAKA"
+      }
+    }
+  }
+}
