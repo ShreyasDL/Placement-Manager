@@ -21,19 +21,19 @@
                         <h2 class="text-white ">Add Selected Students</h2>
                     </div>
 
-                    <form class="mt-4" action="/add_selected_students" method="post">
+                    <form class="mt-4" action="/up_selected_students" method="post">
                         <div class="form-group">
-                            <p class="text-white">Select Company</p>
-                            <select name="sel_comp">
-                            {% for key,value in company_details.items() %}
-                                <option>{{key}}</option>
+                            <p class="text-white">Select Students</p>
+                            
+                            {% for key,value in reg_students.items() %}
+                                <p><input type="checkbox" name = 'sel_students' value = "{{key}}|{{value['Name']}}"> {{value['Name']}} </p>
                             {% endfor %}
-                            </select>
+                            
                         </div>
                         </div>
                         <div class="mt-3">
                             <button class="btn btn-sm btn-light col" type="submit">
-                                Registered Students
+                                Add Selected Students
                             </button>
                         </div>
                         

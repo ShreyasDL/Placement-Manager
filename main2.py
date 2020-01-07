@@ -31,6 +31,7 @@ comp_list=dict()
 email=""
 t_date = date.today().strftime("%Y-%m-%d")
 today_date=t_date.split('-')
+sel_comp=''
 #import firebase_admin
 #from firebase_admin import credentials
 
@@ -317,11 +318,42 @@ def pro_update():
                 return render_template('profile.html',personal_details=personal_details,academic_details=academic_details)
         return render_template('profile.html',personal_details=personal_details,academic_details=academic_details)
 
-'''@app.route('/add_selected_students',methods=['GET','POST'])
+@app.route('/add_selected_students',methods=['GET','POST'])
 def add_selected_students():
+    try :
         if request.method == 'POST' :
-                return render_template('add_selected_students.html')
-        return render_template('add_Selected_students.html',company_details=company_details)'''
+            global sel_comp
+            sel_comp = request.form['sel_comp']
+            data = db.child("Companies").child(sel_comp).child("Students").get()
+            reg_students=dict()
+            for value in data.each() :
+                reg_students[value.key()] = value.val()
+            return render_template('add_selected_students2.html',reg_students=reg_students)
+    except:
+        flash('No Students Registered!!!')
+    return render_template('add_selected_students.html',company_details=company_details)
+
+@app.route('/up_selected_students',methods=['GET','POST'])
+def up_selected_students():
+    if request.method == 'POST' :
+        data = request.form.getlist('sel_students')
+        sel_students = dict() 
+        for value in data :
+            data2 = value.split('|')
+            sel_students[data2[0]] = data2[1]
+        for key,value in sel_students.items() :
+            db.child('Companies').child(sel_comp).child('Selected Students').child(key).set(
+                                                                                            {
+                                                                                                'Name' : value
+                                                                                            }
+                                                                                        )
+        flash('Selected students for '+sel_comp+' added')
+        return redirect(url_for('add_selected_students'))
+    return redirect(url_for('add_selected_students'))
+
+@app.route('/view_graph')
+def view_graph():
+    return render_template('view_graph.html')
                         
 app.run(debug=True)
 app.do_teardown_appcontext()
