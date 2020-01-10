@@ -347,6 +347,11 @@ def up_selected_students():
                                                                                                 'Name' : value
                                                                                             }
                                                                                         )
+            db.child('Student Details').child(key).child('Selected In').child(sel_comp).set(
+            																				{
+            																					'ROLE' : company_details[sel_comp]['Eligibility']['JOB ROLE']
+            																				}
+            																			)
         flash('Selected students for '+sel_comp+' added')
         return redirect(url_for('add_selected_students'))
     return redirect(url_for('add_selected_students'))
