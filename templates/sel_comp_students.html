@@ -1,0 +1,27 @@
+{% extends "adminlogin.html" %}
+{% block content %}
+<div class="container">
+    
+    
+    <form action="/admin_dashboard" >
+    
+    <div class="alert alert-primary" role="alert">
+        
+        <p><strong>Company Name : {{company_name}} </strong></p>
+        <p>Selected Students</p>
+        {% for k,v in st_list.items() %}
+            {{k}} : {{v['Name']}}  <br>
+         {% endfor %}
+    </div>
+        <div class="float-right">
+            <button type="submit" class="btn btn-primary btn-sm" href="/admin_dashboard" name="comp_name" value="{{k}}" >Back</button>
+        </div>
+    
+        
+    </form>
+    
+ 
+
+</div>
+
+{% endblock %}

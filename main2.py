@@ -58,7 +58,7 @@ def login():
                         for value3 in data3.each() :
                                 company_details[value3.key()]=value3.val()
 			if email == 'dlshreyas30@gmail.com' and password == '123456789' :
-                                return render_template('view_comp.html',company_details=company_details)
+                                return render_template('admin_dashboard.html',company_details=company_details)
 			#global usn
 			#usn=request.form['f_usn']
 			user = auth.sign_in_with_email_and_password(email, password)
@@ -355,5 +355,28 @@ def up_selected_students():
 def view_graph():
     return render_template('view_graph.html')
                         
+@app.route('/admin_dashboard')
+def admin_dashboard() :
+	global company_details
+	company_details = dict()
+	data3=db.child("Companies").get()
+	for value3 in data3.each() :
+		company_details[value3.key()]=value3.val()
+	return render_template('admin_dashboard.html',company_details=company_details)
+
+@app.route('/get_sel_students',methods=['GET','POST'])
+def get_sel_students() :
+	try:
+		st_list=dict()
+		reg_st = db.child("Companies").child(request.form['comp_name']).child('Selected Students').get()
+		for each_st in reg_st.each():
+			st_list[each_st.key()]=each_st.val()
+		company_name=request.form['comp_name']
+		return render_template('sel_comp_students.html',st_list=st_list,company_name=company_name)
+	except:
+		flash("No Students selected for "+request.form['comp_name'])
+		return render_template('admin_dashboard.html',company_details=company_details)
+
+
 app.run(debug=True)
 app.do_teardown_appcontext()

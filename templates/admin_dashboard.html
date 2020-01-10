@@ -1,0 +1,41 @@
+{% extends "adminlogin.html" %}
+
+{% block content %}
+ <div class="container" style="min-height:100% width:80%">
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+          <div class="alert alert-warning alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+            {{message}}
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    </div>
+<div class="container">
+    
+    {% for k,v in company_details.items() %}
+    <form action="/get_sel_students" method="post">
+    
+    <div class="alert alert-primary" role="alert">
+        
+        <p><strong>Company Name : {{k}}</strong></p>
+        <div class="float-right">
+            <button type="submit" class="btn btn-primary btn-sm" href="/get_sel_students" name="comp_name" value="{{k}}" >Selected Students</button>
+        </div>
+    
+       {% set d =v['Eligibility']['DRIVE DATE'].split('-') %}
+        {% set da=d[2]+'-'+d[1]+'-'+d[0] %}
+        <p>DRIVE DATE : {{da}}  </p>
+    </div>
+    
+        
+    </form>
+    
+   {% endfor %}
+   
+</div>
+
+{% endblock %}
