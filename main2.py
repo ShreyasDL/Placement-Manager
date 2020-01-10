@@ -75,7 +75,7 @@ def login():
                                         data2=db.child("Student Details").child(usn).child("Academic Details").get()
                                         for value2 in data2.each() :
                                                 academic_details[value2.key()]=value2.val()
-                        return render_template('home3.html')
+                        return redirect(url_for('dashboard'))
 
 	except:
 		#flash('Something went wrong!!')
@@ -147,7 +147,7 @@ def register():
                                 global company_details
                                 company_details=dict()
                                 company_details[value3.key()]=value3.val()
-                        return render_template('home3.html')
+                        return redirect(url_for('dashboard'))
 	return render_template('register.html')
 
 @app.route("/forgot_password")
@@ -251,14 +251,18 @@ def reg_students():
 def dashboard():
         global c_list
         c_list=[]
+        global s_list
+        s_list = []
         d=db.child("Companies").get()
         for each_data in d.each():
             try :
                 if usn in each_data.val()["Students"]:
                     c_list.append(each_data.key())
+                if usn in each_data.val()['Selected Students'] :
+                	s_list.append(each_data.key())
             except :
                 pass
-        return render_template('dashboard.html',c_list=c_list,company_details=company_details)
+        return render_template('dashboard.html',c_list=c_list,company_details=company_details,s_list = s_list)
 
 @app.route("/upload",methods=['GET','POST'])
 def upload():
@@ -347,11 +351,6 @@ def up_selected_students():
                                                                                                 'Name' : value
                                                                                             }
                                                                                         )
-            db.child('Student Details').child(key).child('Selected In').child(sel_comp).set(
-            																				{
-            																					'ROLE' : company_details[sel_comp]['Eligibility']['JOB ROLE']
-            																				}
-            																			)
         flash('Selected students for '+sel_comp+' added')
         return redirect(url_for('add_selected_students'))
     return redirect(url_for('add_selected_students'))

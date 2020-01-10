@@ -3,11 +3,23 @@
 <div class="container">
     <div class="alert alert-success" role="alert">
                 <table cellpadding="10">
-                    <tr><th>Applied Companies </th><th>Drive Date</th></tr>
+                    <tr><th>Selected Companies </th><th>Drive Date</th><th>JOB ROLE</th></tr>
+                 {% for value in s_list %}
+                    {% set sc = value %}
+                    {% set ssp_date = company_details[sc]['Eligibility']['DRIVE DATE'].split('-') %}
+                    <tr><td>{{value}}</td><td>{{ssp_date[2]+'-'+ssp_date[1]+'-'+ssp_date[0]}}</td><td>{{company_details[sc]['Eligibility']['JOB ROLE']}}</td></tr>
+                 {% endfor %}
+        </table>
+             </div>
+</div>
+<div class="container">
+    <div class="alert alert-success" role="alert">
+                <table cellpadding="10">
+                    <tr><th>Applied Companies </th><th>Drive Date</th><th>JOB ROLE</th></tr>
                  {% for value in c_list %}
                     {% set c = value %}
                     {% set sp_date = company_details[c]['Eligibility']['DRIVE DATE'].split('-') %}
-                    <tr><td>{{value}}</td><td>{{sp_date[2]+'-'+sp_date[1]+'-'+sp_date[0]}}</td></tr>
+                    <tr><td>{{value}}</td><td>{{sp_date[2]+'-'+sp_date[1]+'-'+sp_date[0]}}</td><td>{{company_details[c]['Eligibility']['JOB ROLE']}}</td></tr>
                  {% endfor %}
         </table>
              </div>
